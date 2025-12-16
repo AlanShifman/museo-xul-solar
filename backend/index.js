@@ -49,10 +49,15 @@ subscribeGETEvent("obrasColección", devolverColeccion);
 function devolverColeccion() {
     let ids = JSON.parse(fs.readFileSync("../data/idcoleccion.json", "utf-8"));
     let obras = JSON.parse(fs.readFileSync("../data/obras.json", "utf-8"));
+    let obrasEnColeccion = [];
+    
+    for (let i = 0; i < obras.length; i++) {
+        if (ids.includes(obras[i].id)) {
+            obrasEnColeccion.push(obras[i])
+        }
+    }
 
-  
-
-    return ;
+    return obrasEnColeccion;
 }
 
 
