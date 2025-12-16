@@ -1,11 +1,11 @@
-import { subscribeGETEvent, subscribePOSTEvent, realTimeEvent, startServer } from "soquetic";
-import fs from "fs";
+import { subscribeGETEvent, subscribePOSTEvent, realTimeEvent, startServer } from "soquetic"; // importo las funciones de soquetic ( suscribe get event devuelve datos, susctibe post event los recibe)
+import fs from "fs"; // importo los arhcivos
 
-subscribeGETEvent ("obras", hola)
+subscribeGETEvent ("obras", hola) // cuando el front end pida el evento obras ejecuto la funcion hola
 
 function hola() {  
     let contenido = fs.readFileSync("../data/obras.json","utf-8");
-    return JSON.parse(contenido);
+    return JSON.parse(contenido); // lee el archivo con las obras en texto y lo devuelve como un array. data obras json es el archivo que leemos y utf-8 es para leerlo en texto y no en binario.
 } 
 
 startServer();
