@@ -10,14 +10,13 @@ function hola() {
 
 startServer();
 
-subscribeGETEvent ("colección", coleccions)
+subscribeGETEvent ("colección", coleccions) // cuando el frontend pida el evento coleccion se ejecuta la funcion colleccions.
 function coleccions () {
-    let contenido = fs.readFileSync("../data/idcoleccion.json","utf-8");
-    return JSON.parse (contenido)
+    let contenido = fs.readFileSync("../data/idcoleccion.json","utf-8"); 
+    return JSON.parse (contenido)// lee el archivo que contiene los id y lo devuelve como un array al frontend.
 }
 
-subscribePOSTEvent  ("modificarColección", numero)
-
+subscribePOSTEvent  ("modificarColección", numero) // cuando el back recibe el evento modificar coleccion se ejecuta la funcion numero.
 function numero (data) {
 
     if (data.enColección == true) {
