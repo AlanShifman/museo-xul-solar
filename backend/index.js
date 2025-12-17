@@ -35,8 +35,8 @@ function numero (data) { // data es el objeto que manda el frontend. tiene la in
 
         
     
-            let idcoleccionjson = JSON.stringify(resultado, null, 2);
-            fs.writeFileSync("../data/idcoleccion.json", idcoleccionjson);
+            let idcoleccionjson = JSON.stringify(resultado, null, 2); // lo vuelvo a convertir en json porque no se agrego ningun id
+            fs.writeFileSync("../data/idcoleccion.json", idcoleccionjson); // guardo la variable id coleccionjson con el archivo que no agregue ningun id en el archivo de los ids
     
 
 
@@ -48,13 +48,13 @@ function numero (data) { // data es el objeto que manda el frontend. tiene la in
 subscribeGETEvent("obrasColección", devolverColeccion);
 
 function devolverColeccion() {
-    let ids = JSON.parse(fs.readFileSync("../data/idcoleccion.json", "utf-8"));
-    let obras = JSON.parse(fs.readFileSync("../data/obras.json", "utf-8"));
+    let ids = JSON.parse(fs.readFileSync("../data/idcoleccion.json", "utf-8"));// leo el archivo de los ids en texto, lo convierto de json a array y lo guardo en la variable ids.
+    let obras = JSON.parse(fs.readFileSync("../data/obras.json", "utf-8")); // lo mismo q arriba pero con el archivo de las obras y con la variable obras.
     let obrasEnColeccion = [];
     
-    for (let i = 0; i < obras.length; i++) {
-        if (ids.includes(obras[i].id)) {
-            obrasEnColeccion.push(obras[i])
+    for (let i = 0; i < obras.length; i++) { // mientras que el for recorre el array en bucle, i aumenta uno por cada obra que pase.
+        if (ids.includes(obras[i].id)) { // si la obra tiene el id en true lo agrega a obrasencoleccion, si no no lo agrega.
+            obrasEnColeccion.push(obras[i])// guarda las obras que tienen el id en true en obrasencoleccion. ( la variable)
         }
     }
 
