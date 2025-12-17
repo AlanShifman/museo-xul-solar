@@ -53,7 +53,7 @@ function devolverColeccion() {
     let obrasEnColeccion = [];
     
     for (let i = 0; i < obras.length; i++) { // mientras que el for recorre el array en bucle, i aumenta uno por cada obra que pase.
-        if (ids.includes(obras[i].id)) { // si la obra tiene el id en true lo agrega a obrasencoleccion, si no no lo agrega.
+        if (ids.includes(obras[i].id)) { // si el id de la obra se encuentra en variable ids que contiene el array con los ids se agrega a la variable obrasencoleccion.
             obrasEnColeccion.push(obras[i])// guarda las obras que tienen el id en true en obrasencoleccion. ( la variable)
         }
     }
